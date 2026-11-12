@@ -1,7 +1,6 @@
 ﻿using MR.Application.Contracts.Readers;
 using MR.Domain.Documents;
-using Services.OperationResult;
-
+using Services.Application;
 namespace MR.Application.Services
 {
     public class DocumentReadingService : IDocumentReadingService
