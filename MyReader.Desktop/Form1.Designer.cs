@@ -125,6 +125,7 @@
             btnOpenFile.TabIndex = 2;
             btnOpenFile.Text = "Choose File";
             btnOpenFile.UseVisualStyleBackColor = false;
+            btnOpenFile.Click += btnOpenFile_Click;
             // 
             // lblDescription
             // 
