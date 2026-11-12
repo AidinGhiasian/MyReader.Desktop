@@ -28,12 +28,182 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            HeaderPanel = new Panel();
+            lblAppName = new Label();
+            lblSubtitle = new Label();
+            MainPanel = new Panel();
+            UploadPanel = new Panel();
+            lblWelcome = new Label();
+            lblDescription = new Label();
+            btnOpenFile = new Button();
+            lblSupportedFormats = new Label();
+            StatusPanel = new Panel();
+            label2 = new Label();
+            HeaderPanel.SuspendLayout();
+            MainPanel.SuspendLayout();
+            UploadPanel.SuspendLayout();
+            StatusPanel.SuspendLayout();
+            SuspendLayout();
+            // 
+            // HeaderPanel
+            // 
+            HeaderPanel.BackColor = Color.White;
+            HeaderPanel.Controls.Add(lblSubtitle);
+            HeaderPanel.Controls.Add(lblAppName);
+            HeaderPanel.Dock = DockStyle.Top;
+            HeaderPanel.Location = new Point(0, 0);
+            HeaderPanel.Name = "HeaderPanel";
+            HeaderPanel.Size = new Size(734, 90);
+            HeaderPanel.TabIndex = 0;
+            // 
+            // lblAppName
+            // 
+            lblAppName.AutoSize = true;
+            lblAppName.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAppName.ForeColor = Color.FromArgb(35, 45, 65);
+            lblAppName.Location = new Point(30, 12);
+            lblAppName.Name = "lblAppName";
+            lblAppName.Size = new Size(157, 40);
+            lblAppName.TabIndex = 2;
+            lblAppName.Text = "MyReader";
+            // 
+            // lblSubtitle
+            // 
+            lblSubtitle.AutoSize = true;
+            lblSubtitle.Font = new Font("Segoe UI", 9F);
+            lblSubtitle.ForeColor = Color.FromArgb(125, 135, 150);
+            lblSubtitle.Location = new Point(33, 53);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(173, 15);
+            lblSubtitle.TabIndex = 3;
+            lblSubtitle.Text = "\tYour personal document reader";
+            // 
+            // MainPanel
+            // 
+            MainPanel.Controls.Add(UploadPanel);
+            MainPanel.Dock = DockStyle.Fill;
+            MainPanel.Location = new Point(0, 90);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Padding = new Padding(35);
+            MainPanel.Size = new Size(734, 971);
+            MainPanel.TabIndex = 1;
+            // 
+            // UploadPanel
+            // 
+            UploadPanel.Anchor = AnchorStyles.None;
+            UploadPanel.BackColor = Color.White;
+            UploadPanel.Controls.Add(lblSupportedFormats);
+            UploadPanel.Controls.Add(btnOpenFile);
+            UploadPanel.Controls.Add(lblDescription);
+            UploadPanel.Controls.Add(lblWelcome);
+            UploadPanel.Location = new Point(33, 127);
+            UploadPanel.Name = "UploadPanel";
+            UploadPanel.Size = new Size(650, 300);
+            UploadPanel.TabIndex = 0;
+            // 
+            // lblWelcome
+            // 
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcome.ForeColor = Color.FromArgb(35, 45, 65);
+            lblWelcome.Location = new Point(35, 40);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(311, 40);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "Open your document";
+            // 
+            // lblDescription
+            // 
+            lblDescription.AutoSize = true;
+            lblDescription.ForeColor = Color.FromArgb(125, 135, 150);
+            lblDescription.Location = new Point(42, 90);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(186, 19);
+            lblDescription.TabIndex = 1;
+            lblDescription.Text = "Choose a file to start reading";
+            // 
+            // btnOpenFile
+            // 
+            btnOpenFile.BackColor = Color.RoyalBlue;
+            btnOpenFile.Cursor = Cursors.Hand;
+            btnOpenFile.FlatStyle = FlatStyle.Flat;
+            btnOpenFile.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOpenFile.ForeColor = Color.White;
+            btnOpenFile.Location = new Point(40, 155);
+            btnOpenFile.Name = "btnOpenFile";
+            btnOpenFile.Size = new Size(180, 48);
+            btnOpenFile.TabIndex = 2;
+            btnOpenFile.Text = "Choose File";
+            btnOpenFile.UseVisualStyleBackColor = false;
+            // 
+            // lblSupportedFormats
+            // 
+            lblSupportedFormats.AutoSize = true;
+            lblSupportedFormats.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSupportedFormats.ForeColor = Color.FromArgb(145, 150, 160);
+            lblSupportedFormats.Location = new Point(42, 225);
+            lblSupportedFormats.Name = "lblSupportedFormats";
+            lblSupportedFormats.Size = new Size(169, 15);
+            lblSupportedFormats.TabIndex = 3;
+            lblSupportedFormats.Text = "PDF · DOCX · TXT · EPUB · XLSX";
+            // 
+            // StatusPanel
+            // 
+            StatusPanel.BackColor = Color.White;
+            StatusPanel.Controls.Add(label2);
+            StatusPanel.Dock = DockStyle.Bottom;
+            StatusPanel.Location = new Point(0, 1021);
+            StatusPanel.Name = "StatusPanel";
+            StatusPanel.Size = new Size(734, 40);
+            StatusPanel.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(125, 135, 150);
+            label2.Location = new Point(12, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(39, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Ready";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Text = "Form1";
+            BackColor = Color.FromArgb(245, 247, 250);
+            ClientSize = new Size(734, 1061);
+            Controls.Add(StatusPanel);
+            Controls.Add(MainPanel);
+            Controls.Add(HeaderPanel);
+            Font = new Font("Segoe UI", 10F);
+            MinimumSize = new Size(600, 958);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "MyReader";
+            HeaderPanel.ResumeLayout(false);
+            HeaderPanel.PerformLayout();
+            MainPanel.ResumeLayout(false);
+            UploadPanel.ResumeLayout(false);
+            UploadPanel.PerformLayout();
+            StatusPanel.ResumeLayout(false);
+            StatusPanel.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel HeaderPanel;
+        private Label lblAppName;
+        private Label lblSubtitle;
+        private Panel MainPanel;
+        private Panel UploadPanel;
+        private Label lblSupportedFormats;
+        private Button btnOpenFile;
+        private Label lblDescription;
+        private Label lblWelcome;
+        private Panel StatusPanel;
+        private Label label2;
     }
 }

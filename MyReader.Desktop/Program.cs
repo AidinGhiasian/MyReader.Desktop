@@ -1,17 +1,38 @@
+
+using Microsoft.Extensions.DependencyInjection;
+using MR.Application.Contracts.Readers;
+using MR.Application.Services;
+using MR.Infrastructure.Readers;
+using MyReaderManagment.MR.Application.Readers.Services;
+using MyReaderManagment.MR.Infrastructure.Readers;
+
 namespace MyReader.Desktop
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            var services = new ServiceCollection();
+
+            services.AddSingleton<IDocumentTypeDetector, DocumentTypeDetector>();
+
+            services.AddSingleton<IDocumentReader, PdfReader>();
+            services.AddSingleton<IDocumentReader, MyReaderManagment.MR.Infrastructure.Readers.TextReader>();
+            services.AddSingleton<IDocumentReader, WordReader>();
+            services.AddSingleton<IDocumentReader, EpubReader>();
+            services.AddSingleton<IDocumentReader, SpreadsheetReader>();
+
+            services.AddSingleton<IDocumentReaderFactory, DocumentReaderFactory>();
+            services.AddSingleton<IDocumentReadingService, DocumentReadingService>();
+
+            services.AddTransient<Form1>();
+
+            using var serviceProvider = services.BuildServiceProvider();
+
+            Application.Run(serviceProvider.GetRequiredService<Form1>());
         }
     }
 }

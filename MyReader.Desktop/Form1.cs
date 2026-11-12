@@ -6,5 +6,6 @@ namespace MyReader.Desktop
         {
             InitializeComponent();
         }
+
     }
 }
