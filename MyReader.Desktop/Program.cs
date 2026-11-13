@@ -29,6 +29,7 @@ namespace MyReader.Desktop
             services.AddSingleton<IDocumentReadingService, DocumentReadingService>();
 
             services.AddTransient<Form1>();
+            services.AddTransient<ViewerForm>();
 
             using var serviceProvider = services.BuildServiceProvider();
 

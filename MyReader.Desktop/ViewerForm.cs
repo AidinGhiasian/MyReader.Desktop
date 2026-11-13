@@ -13,11 +13,19 @@ namespace MyReader.Desktop
         public ViewerForm()
         {
             InitializeComponent();
+            CenterDocumentPage();
+
+            PageContainer.Resize += (s, e) => CenterDocumentPage();
         }
 
         private void DocumentPage_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void CenterDocumentPage()
+        {
+            DocumentPage.Left = Math.Max(0, (PageContainer.ClientSize.Width - DocumentPage.Width) / 2);
+            DocumentPage.Top = 20;
         }
     }
 }
