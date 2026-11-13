@@ -13,8 +13,6 @@ namespace MyReader.Desktop
             InitializeComponent();
 
             _documentReadingService = documentReadingService;
-
-            btnOpenFile.Click += btnOpenFile_Click;
         }
 
         private async void btnOpenFile_Click(object? sender, EventArgs e)
@@ -72,6 +70,12 @@ namespace MyReader.Desktop
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void CenterDocumentPage()
+        {
+            DocumentPage.Left = Math.Max(0, (PageContainer.ClientSize.Width - DocumentPage.Width) / 2);
+            DocumentPage.Top = 20;
         }
     }
 }
