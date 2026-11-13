@@ -6,12 +6,13 @@ namespace MyReader.Desktop
 {
     public partial class Form1 : Form
     {
+        private readonly ViewerForm _viewerForm;
         private readonly IDocumentReadingService _documentReadingService;
 
-        public Form1(IDocumentReadingService documentReadingService)
+        public Form1(IDocumentReadingService documentReadingService,ViewerForm viewerForm)
         {
             InitializeComponent();
-
+            _viewerForm = viewerForm;
             _documentReadingService = documentReadingService;
         }
 
@@ -52,15 +53,9 @@ namespace MyReader.Desktop
 
                     return;
                 }
-
-                MessageBox.Show(
-                    $"File loaded successfully!\n\n" +
-                    $"Name: {result.FileName}\n" +
-                    $"Content Type: {result.ContentType}\n" +
-                    $"Size: {result.Content.Length:N0} bytes",
-                    "MyReader",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                _viewerForm.SetFileName(result.FileName);
+                _viewerForm.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {

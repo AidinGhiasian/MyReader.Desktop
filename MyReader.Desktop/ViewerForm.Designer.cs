@@ -34,6 +34,7 @@
             PageContainer = new Panel();
             DocumentPage = new Panel();
             TopPanel = new Panel();
+            btnHome = new Button();
             lblFileName = new Label();
             MainPanel.SuspendLayout();
             ViewerPanel.SuspendLayout();
@@ -100,6 +101,7 @@
             // TopPanel
             // 
             TopPanel.BackColor = Color.White;
+            TopPanel.Controls.Add(btnHome);
             TopPanel.Controls.Add(lblFileName);
             TopPanel.Dock = DockStyle.Top;
             TopPanel.Location = new Point(0, 0);
@@ -107,14 +109,28 @@
             TopPanel.Size = new Size(1184, 60);
             TopPanel.TabIndex = 1;
             // 
+            // btnHome
+            // 
+            btnHome.Cursor = Cursors.Hand;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Location = new Point(20, 12);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(90, 35);
+            btnHome.TabIndex = 1;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
+            // 
             // lblFileName
             // 
+            lblFileName.Anchor = AnchorStyles.Top;
             lblFileName.AutoSize = true;
-            lblFileName.Location = new Point(390, 21);
+            lblFileName.Location = new Point(450, 21);
             lblFileName.Name = "lblFileName";
             lblFileName.Size = new Size(88, 15);
             lblFileName.TabIndex = 0;
             lblFileName.Text = "No file selected";
+            lblFileName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ViewerForm
             // 
@@ -123,7 +139,6 @@
             BackColor = Color.FromArgb(245, 247, 250);
             ClientSize = new Size(1184, 761);
             Controls.Add(MainPanel);
-            FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(900, 600);
             Name = "ViewerForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -147,5 +162,6 @@
         private Panel DocumentPanel;
         private Panel PageContainer;
         private Panel DocumentPage;
+        private Button btnHome;
     }
 }

@@ -27,5 +27,15 @@ namespace MyReader.Desktop
             DocumentPage.Left = Math.Max(0, (PageContainer.ClientSize.Width - DocumentPage.Width) / 2);
             DocumentPage.Top = 20;
         }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Application.OpenForms["Form1"]?.Show();
+        }
+        public void SetFileName(string fileName)
+        {
+            lblFileName.Text = fileName;
+        }
     }
 }
