@@ -9,7 +9,7 @@ namespace MyReader.Desktop
         private readonly ViewerForm _viewerForm;
         private readonly IDocumentReadingService _documentReadingService;
 
-        public MainForm(IDocumentReadingService documentReadingService,ViewerForm viewerForm)
+        public MainForm(IDocumentReadingService documentReadingService, ViewerForm viewerForm)
         {
             InitializeComponent();
             _viewerForm = viewerForm;
@@ -52,6 +52,13 @@ namespace MyReader.Desktop
                         MessageBoxIcon.Warning);
 
                     return;
+                }
+                if (result.ContentType == "text/plan")
+                {
+                    await _viewerForm.LoadTextAsync(result.Content);
+                }else
+                {
+                    MessageBox.Show("Currently, only TXT files are supported.");
                 }
                 _viewerForm.SetFileName(result.FileName);
                 _viewerForm.Show();
