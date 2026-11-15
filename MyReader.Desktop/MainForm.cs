@@ -1,6 +1,7 @@
 
 using MR.Application.Contracts.Readers;
 using Services.Application;
+using System.Drawing.Drawing2D;
 
 namespace MyReader.Desktop
 {
@@ -12,6 +13,8 @@ namespace MyReader.Desktop
         public MainForm(IDocumentReadingService documentReadingService, ViewerForm viewerForm)
         {
             InitializeComponent();
+            SetRoundedRegion(UploadPanel, 20);
+            SetRoundedRegion(btnOpenFile, 12);
             _viewerForm = viewerForm;
             _documentReadingService = documentReadingService;
         }
@@ -73,7 +76,20 @@ namespace MyReader.Desktop
                     MessageBoxIcon.Error);
             }
         }
+        private void SetRoundedRegion(Control control, int radius)
+        {
+            Rectangle bounds = new Rectangle(0, 0, control.Width, control.Height);
 
+            using GraphicsPath path = new GraphicsPath();
+
+            path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+            path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+            path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+            path.CloseFigure();
+
+            control.Region = new Region(path);
+        }
 
     }
 }
