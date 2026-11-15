@@ -44,23 +44,14 @@ namespace MyReader.Desktop
             await DocumentViewer.EnsureCoreWebView2Async();
 
             DocumentViewer.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
-            DocumentViewer.CoreWebView2.Settings.IsStatusBarEnabled = false;
+            DocumentViewer.CoreWebView2.Settings.IsStatusBarEnabled= false;
         }
         public async Task LoadHtmlAsync(string html)
         {
             await DocumentViewer.EnsureCoreWebView2Async();
             DocumentViewer.DefaultBackgroundColor = Color.White;
-            DocumentViewer.NavigateToString(
-                """
-        <!DOCTYPE html>
-        <html>
-        <body style="background:white; color:black; font-size:30px;">
-            WebView2 Test
-        </body>
-        </html>
-        """);
+            DocumentViewer.NavigateToString(html);
         }
-
         public async Task LoadTextAsync(byte[] content)
         {
             string text = Encoding.UTF8.GetString(content);
@@ -72,7 +63,7 @@ namespace MyReader.Desktop
         <head>
             <meta charset="UTF-8">
             <style>
-                body {font - family: Arial, sans-serif;
+                body {font-family: Arial, sans-serif;
                     font-size: 16px;
                     line-height: 1.8;
                     white-space: pre-wrap;

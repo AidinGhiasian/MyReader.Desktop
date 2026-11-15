@@ -53,7 +53,7 @@ namespace MyReader.Desktop
 
                     return;
                 }
-                if (result.ContentType == "text/plan")
+                if (result.ContentType == "text/plain")
                 {
                     await _viewerForm.LoadTextAsync(result.Content);
                 }else
