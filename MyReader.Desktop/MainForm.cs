@@ -4,12 +4,12 @@ using Services.Application;
 
 namespace MyReader.Desktop
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private readonly ViewerForm _viewerForm;
         private readonly IDocumentReadingService _documentReadingService;
 
-        public Form1(IDocumentReadingService documentReadingService,ViewerForm viewerForm)
+        public MainForm(IDocumentReadingService documentReadingService,ViewerForm viewerForm)
         {
             InitializeComponent();
             _viewerForm = viewerForm;

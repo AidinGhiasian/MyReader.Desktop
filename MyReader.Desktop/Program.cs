@@ -28,12 +28,12 @@ namespace MyReader.Desktop
             services.AddSingleton<IDocumentReaderFactory, DocumentReaderFactory>();
             services.AddSingleton<IDocumentReadingService, DocumentReadingService>();
 
-            services.AddTransient<Form1>();
+            services.AddTransient<MainForm>();
             services.AddTransient<ViewerForm>();
 
             using var serviceProvider = services.BuildServiceProvider();
 
-            Application.Run(serviceProvider.GetRequiredService<Form1>());
+            Application.Run(serviceProvider.GetRequiredService<MainForm>());
         }
     }
 }
