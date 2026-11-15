@@ -130,14 +130,17 @@
             btnHome.BackColor = Color.FromArgb(27, 32, 41);
             btnHome.Cursor = Cursors.Hand;
             btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatAppearance.BorderColor = Color.FromArgb(52, 60, 73);
+            btnHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(67, 132, 102);
+            btnHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(53, 111, 84);
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Segoe MDL2 Assets", 18F);
             btnHome.ForeColor = Color.FromArgb(241, 243, 245);
-            btnHome.Location = new Point(1120, 8);
+            btnHome.Location = new Point(1126, 14);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(44, 44);
             btnHome.TabIndex = 1;
-            btnHome.Text = "⌂";
+            btnHome.Text = btnHome.Text = "\uE80F"; ;
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
             // 
