@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Threading.Tasks;
+
 
 namespace MyReader.Desktop
 {
@@ -13,6 +8,7 @@ namespace MyReader.Desktop
         public ViewerForm()
         {
             InitializeComponent();
+            _ = InitializeDocumentViewerAsync();
             CenterDocumentPage();
 
             PageContainer.Resize += (s, e) => CenterDocumentPage();
@@ -31,11 +27,23 @@ namespace MyReader.Desktop
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Application.OpenForms["Form1"]?.Show();
+            Application.OpenForms["MainForm"]?.Show();
         }
         public void SetFileName(string fileName)
         {
             lblFileName.Text = fileName;
+        }
+        private async Task InitializeDocumentViewerAsync()
+        {
+            await DocumentViewer.EnsureCoreWebView2Async();
+
+            DocumentViewer.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+            DocumentViewer.CoreWebView2.Settings.IsStatusBarEnabled= false;
+        }
+        public async Task LoadHtmlAsync(string html)
+        {
+            await DocumentViewer.EnsureCoreWebView2Async();
+            DocumentViewer.NavigateToString(html);
         }
     }
 }

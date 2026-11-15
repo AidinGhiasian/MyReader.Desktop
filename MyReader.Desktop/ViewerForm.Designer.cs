@@ -36,11 +36,14 @@
             TopPanel = new Panel();
             btnHome = new Button();
             lblFileName = new Label();
+            DocumentViewer = new Microsoft.Web.WebView2.WinForms.WebView2();
             MainPanel.SuspendLayout();
             ViewerPanel.SuspendLayout();
             DocumentPanel.SuspendLayout();
             PageContainer.SuspendLayout();
+            DocumentPage.SuspendLayout();
             TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DocumentViewer).BeginInit();
             SuspendLayout();
             // 
             // MainPanel
@@ -90,6 +93,7 @@
             DocumentPage.Anchor = AnchorStyles.Top;
             DocumentPage.BackColor = Color.White;
             DocumentPage.BorderStyle = BorderStyle.FixedSingle;
+            DocumentPage.Controls.Add(DocumentViewer);
             DocumentPage.Location = new Point(415, 242);
             DocumentPage.Margin = new Padding(20);
             DocumentPage.Name = "DocumentPage";
@@ -132,6 +136,18 @@
             lblFileName.Text = "No file selected";
             lblFileName.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // DocumentViewer
+            // 
+            DocumentViewer.AllowExternalDrop = true;
+            DocumentViewer.CreationProperties = null;
+            DocumentViewer.DefaultBackgroundColor = Color.White;
+            DocumentViewer.Dock = DockStyle.Fill;
+            DocumentViewer.Location = new Point(40, 40);
+            DocumentViewer.Name = "DocumentViewer";
+            DocumentViewer.Size = new Size(712, 1041);
+            DocumentViewer.TabIndex = 0;
+            DocumentViewer.ZoomFactor = 1D;
+            // 
             // ViewerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -148,8 +164,10 @@
             ViewerPanel.ResumeLayout(false);
             DocumentPanel.ResumeLayout(false);
             PageContainer.ResumeLayout(false);
+            DocumentPage.ResumeLayout(false);
             TopPanel.ResumeLayout(false);
             TopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DocumentViewer).EndInit();
             ResumeLayout(false);
         }
 
@@ -163,5 +181,6 @@
         private Panel PageContainer;
         private Panel DocumentPage;
         private Button btnHome;
+        private Microsoft.Web.WebView2.WinForms.WebView2 DocumentViewer;
     }
 }
